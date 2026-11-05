@@ -1,0 +1,14 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Define MSSQL_SA_PASSWORD en el entorno}
+      MSSQL_PID: Developer
+    ports:
+      - '127.0.0.1:1433:1433'
+    volumes:
+      - farma_sqlserver:/var/opt/mssql
+    restart: unless-stopped
+volumes:
+  farma_sqlserver:

@@ -1,0 +1,26 @@
+{
+  "name": "farmacia-inventario",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de inventario farmacéutico · React + Express + SQL Server",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "setup": "npm run setup -w backend",
+    "build": "npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "test": "npm run test -w backend",
+    "test:integration": "npm run test:integration -w backend",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.9.10"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
